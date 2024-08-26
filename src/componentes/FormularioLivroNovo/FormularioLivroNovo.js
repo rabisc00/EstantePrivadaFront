@@ -21,36 +21,49 @@ export const FormularioLivroNovo = (props) => {
     };
 
     return (
-        <section className="formulario-livro-novo">
-            <form onSubmit={pesquisar}>
-                <InputTexto
-                    label="Título"
-                    placeholder="Qual o título do livro?"
-                    valor={titulo}
-                    aoAlterar={valor => setTitulo(valor)}
-                />
-                <InputTexto
-                    label="Autor"
-                    placeholder="Quem escreveu o livro?"
-                    valor={autor}
-                    aoAlterar={valor => setAutor(valor)}
-                />
-                <InputTexto
-                    label="Editora"
-                    placeholder="Quem publicou o livro?"
-                    valor={editora}
-                    aoAlterar={valor => setEditora(valor)}
-                />
-                <InputTexto
-                    label="ISBN"
-                    placeholder="Qual o código do livro?"
-                    valor={isbn}
-                    aoAlterar={valor => setIsbn(valor)}
-                />
+        <section className="section-livro-novo">
+            <form onSubmit={pesquisar} className="formulario-livro-novo">
+                <div className="livro-novo-campo">
+                    <InputTexto
+                        label="Título"
+                        placeholder="Qual o título do livro?"
+                        valor={titulo}
+                        aoAlterar={valor => setTitulo(valor)}
+                    />
+                </div>
+                
+                <div className="livro-novo-campo">
+                    <InputTexto
+                        label="Autor"
+                        placeholder="Quem escreveu o livro?"
+                        valor={autor}
+                        aoAlterar={valor => setAutor(valor)}
+                    />
+                </div>
 
-                <Botao>
-                    Pesquisar
-                </Botao>
+                <div className="livro-novo-campo">
+                    <InputTexto
+                        label="Editora"
+                        placeholder="Quem publicou o livro?"
+                        valor={editora}
+                        aoAlterar={valor => setEditora(valor)}
+                    />
+                </div>
+
+                <div className="livro-novo-campo">
+                    <InputTexto
+                        label="ISBN"
+                        placeholder="Qual o código do livro?"
+                        valor={isbn}
+                        aoAlterar={valor => setIsbn(valor)}
+                    />
+                </div>
+                
+                <div className="livro-novo-campo">
+                    <Botao>
+                        Pesquisar
+                    </Botao>
+                </div>
             </form>
         </section>
     );

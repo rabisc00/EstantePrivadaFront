@@ -1,17 +1,18 @@
-import './App.css';
+import "./NovosLivros.css";
 import { useState, useEffect, useCallback, useRef } from 'react';
-import FormularioLivroNovo from "./componentes/FormularioLivroNovo";
-import LivrosTable from './componentes/LivrosTable';
+import FormularioLivroNovo from "../../componentes/FormularioLivroNovo";
+import ListagemLivrosNovos from "../../componentes/ListagemLivrosNovos";
 
-function App() {
-	const [livroPesquisa, setLivroPesquisa] = useState({
+export const NovosLivros = () => {
+    const [livroPesquisa, setLivroPesquisa] = useState({
 		titulo: '',
 		autor: '',
 		editora: '', 
 		isbn: ''
 	});
 	const [livros, setLivros] = useState([]);
-	const [mensagem, setMensagem] = useState('');
+	const [naoEncontrado, setNaoEncontrado] = useState(false);
+	const [fimPaginas, setFimPaginas] = useState(false);
 	const [pagina, setPagina] = useState(1);
 	const [carregando, setCarregando] = useState(false);
 
@@ -33,9 +34,11 @@ function App() {
 			const json = await response.json();
 
 			setLivros(json);
-			setMensagem("");
+			setFimPaginas(false);
+			setNaoEncontrado(false);
 		} catch (ex) {
-			setMensagem("Não encontramos livros com esses parâmetros");
+			if (pagina > 1) setFimPaginas(true);
+			else setNaoEncontrado(true);
 		}
 
 		setCarregando(false);
@@ -58,12 +61,13 @@ function App() {
 	}, [buscarLivros]);
 
   	return (
-    	<div className="App">
+    	<div className="wrapper">
 			<FormularioLivroNovo aoPesquisar={aoPesquisar} />
-			<LivrosTable 
+			<ListagemLivrosNovos 
 				livros={livros} 
 				buscarLivros={buscarLivros} 
-				mensagem={mensagem}
+				naoEncontrado={naoEncontrado}
+				fimPaginas={fimPaginas}
 				carregando={carregando}
 				pagina={pagina}
 				proximaPagina={proximaPagina}
@@ -71,6 +75,4 @@ function App() {
 			/>
     	</div>
   	);
-}
-
-export default App;
+};

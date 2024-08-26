@@ -1,0 +1,21 @@
+.section-livro-novo {
+    background-color: #03346E;
+    padding: 20px 0 30px;
+}
+
+.formulario-livro-novo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.livro-novo-campo {
+    width: 350px;
+    text-align: center;
+    align-content: center;
+    padding-top: 10px;
+}
+
+.livro-novo-campo .input-texto label {
+    display: block;
+}
