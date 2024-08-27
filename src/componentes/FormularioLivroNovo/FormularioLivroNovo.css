@@ -1,21 +1,56 @@
-.section-livro-novo {
-    background-color: #03346E;
-    padding: 20px 0 30px;
-}
-
-.formulario-livro-novo {
+#form-livro-novo {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    padding: 20px 0px;
+    border-bottom: 1px solid;
 }
 
-.livro-novo-campo {
-    width: 350px;
-    text-align: center;
+.coluna-form-livro-novo {
     align-content: center;
-    padding-top: 10px;
+    text-align: center;
 }
 
-.livro-novo-campo .input-texto label {
-    display: block;
+.coluna-form-livro-novo .form-control {
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    #form-livro-novo {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 10px;
+    }
+
+    .coluna-form-livro-novo {
+        width: 50%;
+    }
+
+    .coluna-form-livro-novo .form-control {
+        width: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    #form-livro-novo {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 10px;
+    }
+
+    .coluna-form-livro-novo {
+        width: 250px;
+    }
+
+    .coluna-form-livro-novo .form-control {
+        width: 200px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .coluna-form-livro-novo {
+        width: 20%;
+    }
+
+    .coluna-form-livro-novo .form-control {
+        width: 200px;
+    }
 }

@@ -61,7 +61,7 @@ export const NovosLivros = () => {
 	}, [buscarLivros]);
 
   	return (
-    	<div className="wrapper">
+    	<div className="container">
 			<FormularioLivroNovo aoPesquisar={aoPesquisar} />
 			<ListagemLivrosNovos 
 				livros={livros} 

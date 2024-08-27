@@ -4,6 +4,7 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NovosLivros from './paginas/NovosLivros';
 import MeusLivros from "./paginas/MeusLivros";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   	{

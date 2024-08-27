@@ -1,0 +1,36 @@
+.todos-livros-novos {
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.livro-novo {
+    width: 600px;
+}
+
+.livro-novo .card-body {
+    display: inherit;
+}
+
+.livro-novo img {
+    width: 120px;
+    object-fit: cover;
+}
+
+.livro-novo-info1 {
+    padding-left: 20px;
+    width: 350px;
+    align-content: center;
+}
+
+.livro-novo-tags {
+    display: flex;
+    column-gap: 5px;
+}
+
+.livro-novo-tags span {
+    padding: 1px 8px;
+}

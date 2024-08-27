@@ -28,7 +28,7 @@ export const ListagemLivrosNovos = ({ livros, buscarLivros, naoEncontrado, fimPa
                 ultimaPagina={true}
             />
         </> : 
-        livros.length > 0 &&
+        livros.length > 0 ?
         <>
             <LivrosTable livros={livros} />
             <BotoesPaginacao 
@@ -37,6 +37,7 @@ export const ListagemLivrosNovos = ({ livros, buscarLivros, naoEncontrado, fimPa
                 ultimaPagina={false}
                 primeiraPagina={pagina === 1}
             />
-        </>
+        </> : 
+        <h1>Nenhum parâmetro enviado</h1>
     );
 };
