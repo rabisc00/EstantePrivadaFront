@@ -1,5 +1,5 @@
-import { BotoesPaginacao } from "../BotoesPaginacao/BotoesPaginacao";
-import { LivrosTable } from "../LivrosTable/LivrosTable";
+import BotoesPaginacao from "../BotoesPaginacao";
+import CardsLivrosNovos from "../CardsLivrosNovos";
 import { useEffect, useRef } from "react";
 import "./ListagemLivrosNovos.css";
 
@@ -16,28 +16,34 @@ export const ListagemLivrosNovos = ({ livros, buscarLivros, naoEncontrado, fimPa
     }, [carregando]);
 
     return (
-        carregando ? <img src="/imagens/spinner.svg" alt="Carregando" /> :
-        naoEncontrado ? <h1>Não encontramos livros com esses parâmetros</h1> :
-        fimPaginas ?
-        <>
-            <h1>Não temos mais páginas para esses parâmetros.</h1>
-            <LivrosTable livros={[]} />
-            <BotoesPaginacao 
-                proximaPagina={proximaPagina}
-                paginaAnterior={paginaAnterior}
-                ultimaPagina={true}
-            />
-        </> : 
-        livros.length > 0 ?
-        <>
-            <LivrosTable livros={livros} />
-            <BotoesPaginacao 
-                proximaPagina={proximaPagina}
-                paginaAnterior={paginaAnterior}
-                ultimaPagina={false}
-                primeiraPagina={pagina === 1}
-            />
-        </> : 
-        <h1>Nenhum parâmetro enviado</h1>
+        <div className="livros-novos-wrapper">
+            {
+                carregando ? 
+                    <img src="/imagens/spinner.svg" alt="Carregando" /> :
+                    naoEncontrado ?
+                        <h1 className="mensagem-livro-novo">Não encontramos livros com esses parâmetros</h1> :
+                        fimPaginas ?
+                            <>
+                                <h1 className="mensagem-livro-novo">Não temos mais páginas para esses parâmetros.</h1>
+                                <BotoesPaginacao 
+                                    proximaPagina={proximaPagina}
+                                    paginaAnterior={paginaAnterior}
+                                    ultimaPagina={true}
+                                />
+                            </> : 
+                            livros.length > 0 ?
+                            <>
+                                <CardsLivrosNovos livros={livros} />
+                                <BotoesPaginacao 
+                                    proximaPagina={proximaPagina}
+                                    paginaAnterior={paginaAnterior}
+                                    ultimaPagina={livros.length < 10}
+                                    primeiraPagina={pagina === 1}
+                                />
+                            </> :
+                            <h1>Nenhum parâmetro enviado</h1>
+                
+            }
+        </div>
     );
 };
