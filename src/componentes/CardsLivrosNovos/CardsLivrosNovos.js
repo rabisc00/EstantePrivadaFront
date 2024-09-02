@@ -1,8 +1,10 @@
 import "./CardsLivrosNovos.css";
 import { useState, useEffect } from "react";
-import CardLivroNovo from "../CardLivroNovo";
+import Card from "react-bootstrap/Card";
 
-export const CardsLivrosNovos = ({ livros }) => {
+const IMAGE_DEFAULT = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSidQoav1MLzs-vLXRgx7f4S-16yT0D4YB2A&s";
+
+export const CardsLivrosNovos = ({ livros, setLivroSelecionado, setLivroSelecionadoId }) => {
     const [dictAtivos, setDictAtivos] = useState({});
 
     const setSelecionado = (id, selecionado) => {
@@ -14,8 +16,10 @@ export const CardsLivrosNovos = ({ livros }) => {
             else novoDict[k] = false;
         });
 
+        setLivroSelecionadoId(selecionado? id : "");
+        setLivroSelecionado(selecionado);
         setDictAtivos(novoDict);
-    }
+    };
 
     useEffect(() => {
         const dictFinal = {};
@@ -28,13 +32,40 @@ export const CardsLivrosNovos = ({ livros }) => {
 
     return (
         <div className="todos-livros-novos">
-            {livros.map((l) => 
-                <CardLivroNovo 
-                    key={l.id} 
-                    livro={l} 
-                    selecionado={dictAtivos[l.id]} 
-                    setSelecionado={setSelecionado}
-                />)}
+            {livros.map((l) => {
+                    const selecionado = dictAtivos[l.id];
+                    const cardTitulo = l.titulo + (l.subtitulo != null ? ": " + l.subtitulo : "");
+                    const cardSubtitulo = l.autor != null && l.editora != null ? 
+                        l.autor + " | " + l.editora : l.autor != null && l.editora == null ? 
+                        l.autor : l.autor == null && l.editora != null ? 
+                        l.editora : null;
+                    const cardClass = "livro-novo " + (selecionado ? "border-primary border-3" : "");
+                
+                    const clickCard = (id) => {
+                        if (selecionado) setSelecionado(id, false);
+                        else setSelecionado(id, true);
+                    };
+
+                    return (
+                        <Card key={l.id} className={cardClass} onClick={() => clickCard(l.id)}>
+                            <Card.Body>
+                                <img src={l.imagem != null ? l.imagem : IMAGE_DEFAULT} alt={l.titulo} />
+                                <div className="livro-novo-info1">
+                                    <Card.Title>{cardTitulo}</Card.Title>
+                                    {cardSubtitulo && <Card.Subtitle>{cardSubtitulo}</Card.Subtitle>}
+                                </div>
+                            </Card.Body>
+
+                            <Card.Footer>
+                                {l.isbn && <p className="livro-novo-isbn">ISBN: {l.isbn}</p>}
+                                <div className="livro-novo-tags">
+                                    {l.anoLancamento && <span className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">{l.anoLancamento}</span>}
+                                    {l.idioma && <span className="text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-2">{l.idioma}</span>}
+                                </div>
+                            </Card.Footer>
+                        </Card>
+                    );
+            })}
         </div>
     );
 }

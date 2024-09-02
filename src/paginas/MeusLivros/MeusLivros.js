@@ -1,7 +1,11 @@
 import "./MeusLivros.css";
+import LivrosNavbar from "../../componentes/LivrosNavbar";
 
 export const MeusLivros = () => {
     return (
-        <h1>Hello!</h1>
+        <>
+            <LivrosNavbar />
+            <h1>Hello!</h1>
+        </>
     );
 };

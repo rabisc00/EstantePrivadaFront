@@ -1,6 +1,20 @@
-.botoes-paginacao {
+.footer-livros-novos {
     display: flex;
     justify-content: center;
-    column-gap: 20px;
     padding-top: 20px;
+}
+
+.footer-livros-novos div {
+    width: 50%;
+}
+
+.div-paginacao {
+    display: flex;
+    justify-content: left;
+    column-gap: 20px;
+}
+
+.div-salvar-livro {
+    display: flex;
+    justify-content: right;
 }

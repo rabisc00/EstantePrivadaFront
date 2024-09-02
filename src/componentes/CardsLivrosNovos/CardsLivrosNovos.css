@@ -5,3 +5,64 @@
     column-gap: 20px;
     row-gap: 20px;
 }
+
+.livro-novo {
+    text-align: left;
+    cursor: pointer;
+}
+
+.livro-novo .card-body {
+    display: inherit;
+}
+
+.livro-novo .card-footer {
+    height: 75px;
+    align-content: center;
+}
+
+.livro-novo img {
+    width: 120px;
+    object-fit: cover;
+}
+
+.livro-novo-info1 {
+    padding-left: 20px;
+    align-content: center;
+}
+
+.card-footer .livro-novo-isbn {
+    margin-bottom: 5px;
+}
+
+.livro-novo-tags {
+    display: flex;
+    column-gap: 5px;
+}
+
+.livro-novo-tags span {
+    padding: 1px 8px;
+}
+
+@media (min-width: 768px) {
+    .livro-novo {
+        width: 696px;
+    }
+}
+
+@media (min-width: 992px) {
+    .livro-novo {
+        width: 458px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .livro-novo {
+        width: 548px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .livro-novo {
+        width: 638px;
+    }
+}

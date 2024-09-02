@@ -1,9 +1,7 @@
-import BotoesPaginacao from "../BotoesPaginacao";
-import CardsLivrosNovos from "../CardsLivrosNovos";
 import { useEffect, useRef } from "react";
 import "./ListagemLivrosNovos.css";
 
-export const ListagemLivrosNovos = ({ livros, buscarLivros, naoEncontrado, fimPaginas, carregando, pagina, proximaPagina, paginaAnterior }) => {
+export const ListagemLivrosNovos = ({ cardsLivrosNovos, botoesPaginacao, livrosLength, buscarLivros, naoEncontrado, fimPaginas, carregando, pagina }) => {
     const firstRender = useRef(true);
 
     useEffect(() => {
@@ -25,21 +23,12 @@ export const ListagemLivrosNovos = ({ livros, buscarLivros, naoEncontrado, fimPa
                         fimPaginas ?
                             <>
                                 <h1 className="mensagem-livro-novo">Não temos mais páginas para esses parâmetros.</h1>
-                                <BotoesPaginacao 
-                                    proximaPagina={proximaPagina}
-                                    paginaAnterior={paginaAnterior}
-                                    ultimaPagina={true}
-                                />
+                                {botoesPaginacao}
                             </> : 
-                            livros.length > 0 ?
+                            livrosLength > 0 ?
                             <>
-                                <CardsLivrosNovos livros={livros} />
-                                <BotoesPaginacao 
-                                    proximaPagina={proximaPagina}
-                                    paginaAnterior={paginaAnterior}
-                                    ultimaPagina={livros.length < 10}
-                                    primeiraPagina={pagina === 1}
-                                />
+                                {cardsLivrosNovos}
+                                {botoesPaginacao}
                             </> :
                             <h1>Nenhum parâmetro enviado</h1>
                 
