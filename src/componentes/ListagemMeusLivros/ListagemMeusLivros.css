@@ -1,0 +1,6 @@
+.meu-livro-imagem {
+    border-radius: 10px;
+    width: 130px;
+    max-height: 200px;
+    cursor: pointer;
+}

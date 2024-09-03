@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import "./ListagemLivrosNovos.css";
+import Spinner from 'react-bootstrap/Spinner';
 
 export const ListagemLivrosNovos = ({ cardsLivrosNovos, botoesPaginacao, livrosLength, buscarLivros, naoEncontrado, fimPaginas, carregando, pagina }) => {
     const firstRender = useRef(true);
@@ -17,7 +18,7 @@ export const ListagemLivrosNovos = ({ cardsLivrosNovos, botoesPaginacao, livrosL
         <div className="livros-novos-wrapper">
             {
                 carregando ? 
-                    <img src="/imagens/spinner.svg" alt="Carregando" /> :
+                    <Spinner animation="border" variant="primary" /> :
                     naoEncontrado ?
                         <h1 className="mensagem-livro-novo">Não encontramos livros com esses parâmetros</h1> :
                         fimPaginas ?
