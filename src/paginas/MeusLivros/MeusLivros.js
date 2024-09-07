@@ -1,13 +1,21 @@
 import "./MeusLivros.css";
 import LivrosNavbar from "../../componentes/LivrosNavbar";
 import ListagemMeusLivros from "../../componentes/ListagemMeusLivros";
+import ModalEditarLivro from "../../componentes/ModalEditarLivro";
+import URL_BASE from "../..";
 import { useEffect, useState } from "react";
 
-const URL_BASE = "http://localhost:8080/livros";
 
 export const MeusLivros = () => {
     const [carregando, setCarregando] = useState(false);
+    const [mostrarModal, setMostrarModal] = useState(false);
+    const [idLivroSelecionado, setIdLivroSelecionado] = useState(null);
     const [livros, setLivros] = useState([]);
+
+    const selecionarLivro = (id) => {
+        setIdLivroSelecionado(id);
+        setMostrarModal(true);
+    };
 
     useEffect(() => {
         const buscarLivros = async () => {
@@ -30,6 +38,12 @@ export const MeusLivros = () => {
                 <ListagemMeusLivros
                     livros={livros}
                     carregando={carregando}
+                    selecionarLivro={selecionarLivro}
+                />
+                <ModalEditarLivro
+                    idLivro={idLivroSelecionado}
+                    mostrarModal={mostrarModal}
+                    setMostrarModal={setMostrarModal}
                 />
             </div>
         </>

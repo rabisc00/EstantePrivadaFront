@@ -1,13 +1,12 @@
 import "./NovosLivros.css";
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
+import URL_BASE from "../..";
 import FormularioLivroNovo from "../../componentes/FormularioLivroNovo";
 import ListagemLivrosNovos from "../../componentes/ListagemLivrosNovos";
 import CardsLivrosNovos from "../../componentes/CardsLivrosNovos";
 import BotoesPaginacao from "../../componentes/BotoesPaginacao";
 import LivrosNavbar from "../../componentes/LivrosNavbar";
-
-const URL_BASE = "http://localhost:8080/livros";
 
 export const NovosLivros = () => {
 	const navigate = useNavigate();

@@ -16,7 +16,7 @@ export const CardsLivrosNovos = ({ livros, setLivroSelecionado, setLivroSelecion
             else novoDict[k] = false;
         });
 
-        setLivroSelecionadoId(selecionado? id : "");
+        setLivroSelecionadoId(selecionado ? id : "");
         setLivroSelecionado(selecionado);
         setDictAtivos(novoDict);
     };

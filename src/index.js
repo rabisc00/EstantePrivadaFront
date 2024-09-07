@@ -6,6 +6,8 @@ import NovosLivros from './paginas/NovosLivros';
 import MeusLivros from "./paginas/MeusLivros";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const URL_BASE = "http://localhost:8080/livros";
+
 const router = createBrowserRouter([
   	{
 		path: "/",
@@ -23,3 +25,5 @@ root.render(
     	<RouterProvider router={router} />
   	//</React.StrictMode>
 );
+
+export default URL_BASE;

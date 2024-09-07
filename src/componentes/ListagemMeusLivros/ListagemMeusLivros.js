@@ -6,7 +6,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
 const IMAGE_DEFAULT = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSidQoav1MLzs-vLXRgx7f4S-16yT0D4YB2A&s";
 
-export const ListagemMeusLivros = ({ livros, carregando}) => {
+export const ListagemMeusLivros = ({ livros, carregando, selecionarLivro }) => {
     useEffect(() => {
 
     }, [livros, carregando]);
@@ -34,7 +34,11 @@ export const ListagemMeusLivros = ({ livros, carregando}) => {
 
                     return (
                         <OverlayTrigger key={l.id} trigger="hover" placement="right" overlay={popover}>
-                            <img className="meu-livro-imagem" src={l.imagem != null ? l.imagem : IMAGE_DEFAULT} alt={l.titulo} />
+                            <img 
+                                className="meu-livro-imagem" 
+                                onClick={() => selecionarLivro(l.id)}
+                                src={l.imagem != null ? l.imagem : IMAGE_DEFAULT} 
+                                alt={l.titulo} />
                         </OverlayTrigger>
                     );
                 })
