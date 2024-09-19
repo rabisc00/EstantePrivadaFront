@@ -56,6 +56,22 @@ export const ModalEditarLivro = ({ idLivro, mostrarModal, setMostrarModal }) => 
 		});
 
         window.location.reload();
+    };
+
+    const excluir = async (e) => {
+        e.preventDefault();
+
+        const urlDelete = URL_BASE + "/" + detalhesLivro.id;
+
+        await fetch(urlDelete, {
+            method: 'DELETE',
+            headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			}
+        });
+
+        window.location.reload();
     }
 
     useEffect(() => {
@@ -196,7 +212,7 @@ export const ModalEditarLivro = ({ idLivro, mostrarModal, setMostrarModal }) => 
                         Entradas
                     </Button>
 
-                    <Button variant="danger">
+                    <Button onClick={excluir} variant="danger">
                         Excluir
                     </Button>
 
