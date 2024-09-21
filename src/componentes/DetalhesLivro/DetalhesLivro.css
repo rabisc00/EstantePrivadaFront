@@ -1,0 +1,9 @@
+.detalhes-livro {
+    display: flex;
+    column-gap: 20px;
+    padding: 20px 0;
+}
+
+.detalhes-livro-info {
+    padding: 20px 0;
+}

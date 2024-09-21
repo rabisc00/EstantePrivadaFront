@@ -2,7 +2,7 @@ import "./MeusLivros.css";
 import LivrosNavbar from "../../componentes/LivrosNavbar";
 import ListagemMeusLivros from "../../componentes/ListagemMeusLivros";
 import ModalEditarLivro from "../../componentes/ModalEditarLivro";
-import URL_BASE from "../..";
+import { URL_BASE } from "../..";
 import { useEffect, useState } from "react";
 
 

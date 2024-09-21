@@ -34,15 +34,6 @@
     margin-bottom: 5px;
 }
 
-.livro-novo-tags {
-    display: flex;
-    column-gap: 5px;
-}
-
-.livro-novo-tags span {
-    padding: 1px 8px;
-}
-
 @media (min-width: 768px) {
     .livro-novo {
         width: 696px;

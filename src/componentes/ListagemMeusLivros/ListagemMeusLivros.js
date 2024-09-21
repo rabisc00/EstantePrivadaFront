@@ -3,8 +3,7 @@ import "./ListagemMeusLivros.css";
 import Spinner from 'react-bootstrap/Spinner';
 import Popover from "react-bootstrap/Popover";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-
-const IMAGE_DEFAULT = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSidQoav1MLzs-vLXRgx7f4S-16yT0D4YB2A&s";
+import { IMAGE_DEFAULT } from "../..";
 
 export const ListagemMeusLivros = ({ livros, carregando, selecionarLivro }) => {
     useEffect(() => {

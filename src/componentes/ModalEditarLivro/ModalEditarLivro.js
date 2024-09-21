@@ -1,14 +1,17 @@
 import "./ModalEditarLivro.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import URL_BASE from "../..";
+import { URL_BASE } from "../..";
 
 export const ModalEditarLivro = ({ idLivro, mostrarModal, setMostrarModal }) => {
+    const navigate = useNavigate();
+
     const [carregando, setCarregando] = useState(false);
     const [detalhesLivro, setDetalhesLivro] = useState({
         id: null,
@@ -72,7 +75,11 @@ export const ModalEditarLivro = ({ idLivro, mostrarModal, setMostrarModal }) => 
         });
 
         window.location.reload();
-    }
+    };
+
+    const entradas = (e) => {
+        navigate("/livros/" + detalhesLivro.id);
+    };
 
     useEffect(() => {
         const buscarDetalhes = async () => {
@@ -208,7 +215,7 @@ export const ModalEditarLivro = ({ idLivro, mostrarModal, setMostrarModal }) => 
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secondary">
+                    <Button onClick={entradas} variant="secondary">
                         Entradas
                     </Button>
 

@@ -12,3 +12,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.meu-livro-imagem {
+  border-radius: 10px;
+  width: 130px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.tags-row {
+  display: flex;
+  column-gap: 5px;
+}
+
+.tags-row span {
+  padding: 1px 8px;
+}

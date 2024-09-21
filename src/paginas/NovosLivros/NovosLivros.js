@@ -1,7 +1,7 @@
 import "./NovosLivros.css";
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
-import URL_BASE from "../..";
+import { URL_BASE } from "../..";
 import FormularioLivroNovo from "../../componentes/FormularioLivroNovo";
 import ListagemLivrosNovos from "../../componentes/ListagemLivrosNovos";
 import CardsLivrosNovos from "../../componentes/CardsLivrosNovos";

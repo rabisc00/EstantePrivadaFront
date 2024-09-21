@@ -5,8 +5,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NovosLivros from './paginas/NovosLivros';
 import MeusLivros from "./paginas/MeusLivros";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { LogsLivro } from './paginas/LogsLivro/LogsLivro';
 
-const URL_BASE = "http://localhost:8080/livros";
+export const URL_BASE = "http://localhost:8080/livros";
+export const IMAGE_DEFAULT = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSidQoav1MLzs-vLXRgx7f4S-16yT0D4YB2A&s";
 
 const router = createBrowserRouter([
   	{
@@ -16,6 +18,10 @@ const router = createBrowserRouter([
 	{
 		path: "/livro-novo",
 		element: <NovosLivros />
+	},
+	{
+		path: "livros/:livroId",
+		element: <LogsLivro />
 	}
 ])
 
@@ -25,5 +31,3 @@ root.render(
     	<RouterProvider router={router} />
   	//</React.StrictMode>
 );
-
-export default URL_BASE;

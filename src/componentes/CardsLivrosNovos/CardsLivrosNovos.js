@@ -1,8 +1,7 @@
 import "./CardsLivrosNovos.css";
+import { IMAGE_DEFAULT } from "../..";
 import { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
-
-const IMAGE_DEFAULT = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSidQoav1MLzs-vLXRgx7f4S-16yT0D4YB2A&s";
 
 export const CardsLivrosNovos = ({ livros, setLivroSelecionado, setLivroSelecionadoId }) => {
     const [dictAtivos, setDictAtivos] = useState({});
@@ -58,7 +57,7 @@ export const CardsLivrosNovos = ({ livros, setLivroSelecionado, setLivroSelecion
 
                             <Card.Footer>
                                 {l.isbn && <p className="livro-novo-isbn">ISBN: {l.isbn}</p>}
-                                <div className="livro-novo-tags">
+                                <div className="tags-row">
                                     {l.anoLancamento && <span className="text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">{l.anoLancamento}</span>}
                                     {l.idioma && <span className="text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-2">{l.idioma}</span>}
                                 </div>
