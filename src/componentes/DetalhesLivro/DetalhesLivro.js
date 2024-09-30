@@ -21,7 +21,7 @@ export const DetalhesLivro = ({ livroId }) => {
         const buscarDetalhes = async () => {
             setCarregando(true);
 
-            const response = await fetch(URL_BASE + "/" + livroId);
+            const response = await fetch(URL_BASE + "/livros/" + livroId);
             const json = await response.json();
 
             setLivro(json);

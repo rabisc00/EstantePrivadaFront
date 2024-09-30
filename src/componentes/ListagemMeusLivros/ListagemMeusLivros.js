@@ -15,32 +15,34 @@ export const ListagemMeusLivros = ({ livros, carregando, selecionarLivro }) => {
             {
             carregando ? 
                 <Spinner animation="border" variant="primary" /> :
-                livros.map(l => {
-                    const cardTitulo = l.titulo + (l.subtitulo != null ? ": " + l.subtitulo : "");
-                    const autores = l.autores || "";
-                    const editora = l.editora == null ? "" : l.autores != null ? " | " + l.editora : l.editora;
-                    const ano = l.anoPublicacao == null ? "" : l.autores != null || l.editora != null ? " | " + l.anoPublicacao : l.anoPublicacao;
+                livros.length > 0 ?
+                    livros.map(l => {
+                        const cardTitulo = l.titulo + (l.subtitulo != null ? ": " + l.subtitulo : "");
+                        const autores = l.autores || "";
+                        const editora = l.editora == null ? "" : l.autores != null ? " | " + l.editora : l.editora;
+                        const ano = l.anoPublicacao == null ? "" : l.autores != null || l.editora != null ? " | " + l.anoPublicacao : l.anoPublicacao;
 
 
-                    const popover = (
-                        <Popover id="popover-basic">
-                            <Popover.Header as="h3">{cardTitulo}</Popover.Header>
-                            <Popover.Body>
-                                {autores + editora + ano}
-                            </Popover.Body>
-                        </Popover>
-                    );
+                        const popover = (
+                            <Popover id="popover-basic">
+                                <Popover.Header as="h3">{cardTitulo}</Popover.Header>
+                                <Popover.Body>
+                                    {autores + editora + ano}
+                                </Popover.Body>
+                            </Popover>
+                        );
 
-                    return (
-                        <OverlayTrigger key={l.id} trigger="hover" placement="right" overlay={popover}>
-                            <img 
-                                className="meu-livro-imagem" 
-                                onClick={() => selecionarLivro(l.id)}
-                                src={l.imagem != null ? l.imagem : IMAGE_DEFAULT} 
-                                alt={l.titulo} />
-                        </OverlayTrigger>
-                    );
-                })
+                        return (
+                            <OverlayTrigger key={l.id} trigger="hover" placement="right" overlay={popover}>
+                                <img 
+                                    className="meu-livro-imagem" 
+                                    onClick={() => selecionarLivro(l.id)}
+                                    src={l.imagem != null ? l.imagem : IMAGE_DEFAULT} 
+                                    alt={l.titulo} />
+                            </OverlayTrigger>
+                        );
+                    }) :
+                    <h1 className="mensagem-livro-novo">Você ainda não adicionou nenhum livro.</h1>
             }
         </>
     );

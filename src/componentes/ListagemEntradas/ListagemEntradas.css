@@ -1,0 +1,68 @@
+#entradas-livro {
+    padding: 50px 0;
+}
+
+.lista-entradas-livro, .entrada {
+    list-style: none;
+    padding: 0;
+}
+
+.grupo-entradas {
+    border-top: 1px solid #ced4da;
+    padding-top: 20px;
+
+    &:first-child {
+        border-top: none;
+        padding-top: 0;
+    }
+}
+
+.lista-grupo-entradas {
+    padding-left: 0;
+}
+
+.entrada {
+    padding: 0 0 20px 20px;
+    margin-left: 10px;
+    border-left: 1px solid rgba(13,110,253);
+    position: relative;
+
+    &:last-child {
+        border: 0;
+        padding-bottom: 0;
+    }
+
+    &:before {
+        content: '';
+        width: 15px;
+        height: 15px;
+        background: white;
+        border: 1px solid rgba(13,110,253);
+        box-shadow: 3px 3px 0px #bab5f8;
+        box-shadow: 3px 3px 0px #bab5f8;
+        border-radius: 50%;
+        position: absolute;
+        left: -8px;
+        top: 0;
+    }
+}
+
+.entrada-info {
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+    align-content: center;
+}
+
+.entrada-info p {
+    margin: 0;
+}
+
+.entrada-info .progress {
+    width: 250px;
+}
+
+#button-nova-entrada-container {
+    display: flex;
+    justify-content: end;
+}

@@ -34,7 +34,7 @@ export const NovosLivros = () => {
 
     const buscarLivros = useCallback(async (pagina) => {
 		setCarregando(true);
-        const url = URL_BASE + "/pesquisar?titulo=" + livroPesquisa.titulo + "&autor=" + livroPesquisa.autor + 
+        const url = URL_BASE + "/livros/pesquisar?titulo=" + livroPesquisa.titulo + "&autor=" + livroPesquisa.autor + 
             "&editora=" + livroPesquisa.editora + "&isbn=" + livroPesquisa.isbn + "&pagina=" + pagina;
 
 		const response = await fetch(url.replaceAll(" ", "+"));
@@ -55,7 +55,7 @@ export const NovosLivros = () => {
     }, [livroPesquisa]);
 
 	const salvarLivro = async () => {
-		await fetch(URL_BASE, {
+		await fetch(URL_BASE + "/livros", {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',

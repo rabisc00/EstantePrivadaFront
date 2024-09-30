@@ -38,7 +38,7 @@ export const ModalEditarLivro = ({ idLivro, mostrarModal, setMostrarModal }) => 
     const atualizar = async (e) => {
         e.preventDefault();
 
-        const urlUpdate = URL_BASE + "/" + detalhesLivro.id;
+        const urlUpdate = URL_BASE + "/livros/" + detalhesLivro.id;
 
         await fetch(urlUpdate, {
 			method: 'PUT',
@@ -64,7 +64,7 @@ export const ModalEditarLivro = ({ idLivro, mostrarModal, setMostrarModal }) => 
     const excluir = async (e) => {
         e.preventDefault();
 
-        const urlDelete = URL_BASE + "/" + detalhesLivro.id;
+        const urlDelete = URL_BASE + "/livros/" + detalhesLivro.id;
 
         await fetch(urlDelete, {
             method: 'DELETE',
@@ -85,7 +85,7 @@ export const ModalEditarLivro = ({ idLivro, mostrarModal, setMostrarModal }) => 
         const buscarDetalhes = async () => {
             setCarregando(true);
 
-            const response = await fetch(URL_BASE + "/" + idLivro);
+            const response = await fetch(URL_BASE + "/livros/" + idLivro);
             const json = await response.json();
 
             setDetalhesLivro(json);
